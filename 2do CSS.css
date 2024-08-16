@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.carousel {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.carousel-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Botones de navegación ocultos */
+input[type="radio"] {
+    display: none;
+}
+
+/* Control de las imágenes según el botón de radio seleccionado */
+#img1:checked ~ .carousel-images {
+    transform: translateX(0);
+}
+

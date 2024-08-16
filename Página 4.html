@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+     <link rel="stylesheet" href="2do CSS.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .carousel {
+            width: 80%;
+            max-width: 800px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .carousel-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Radio buttons for images */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Positioning images using radio buttons */
+        #img1:checked ~ .carousel-images {
+            transform: translateX(0);
+        }
+
+        #img2:checked ~ .carousel-images {
+            transform: translateX(-100%);
+        }
+
+        #img3:checked ~ .carousel-images {
+            transform: translateX(-200%);
+        }
+
+        /* Navigation controls */
+        .carousel-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-nav label {
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-nav label:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Highlight the active nav button */
+        #img1:checked ~ .carousel-nav label[for="img1"],
+        #img2:checked ~ .carousel-nav label[for="img2"],
+        #img3:checked ~ .carousel-nav label[for="img3"] {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel">
+        <input type="radio" id="img1" name="carousel" checked>
+        <input type="radio" id="img2" name="carousel">
+        <input type="radio" id="img3" name="carousel">
+
+        <div class="carousel-images">
+            <img src="imagen1.jpg" alt="Imagen 1">
+            <img src="imagen2.jpg" alt="Imagen 2">
+            <img src="imagen3.jpg" alt="Imagen 3">
+        </div>
+
+        <div class="carousel-buttons">
+            <label for="img1"><button>&#10094;</button></label>
+            <label for="img3"><button>&#10095;</button></label>
+        </div>
+
+        <div class="carousel-nav">
+            <label for="img1"></label>
+            <label for="img2"></label>
+            <label for="img3"></label>
+        </div>
+    </div>
+
+</body>
+</html>
